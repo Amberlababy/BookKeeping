@@ -1,0 +1,25 @@
+﻿@model List<BookKeeping.Models.Book.KeepingDetailModel>
+@{
+    int idx = 0; 
+ }
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().CategoryDesc)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().RecordDt)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Amount)</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        idx++;
+        <tr>
+            <td>@idx</td>
+            <td>@item.CategoryDesc</td>
+            <td>@item.RecordDt.ToString("yyyy-MM-dd")</td>
+            <td>@item.Amount.ToString("###,###,##0")</td>
+        </tr>
+    }
+</table>
